@@ -4,14 +4,14 @@ class Login extends Component {
 
     constructor(props) {
         super(props);
-        console.log(props);
+        //console.log(props);
 
         this.state = {
-            formValid: false,
             user: {
                 username: null,
                 pwd: null
             },    
+            formValid: false,
             usernameValid: false,
             pwdValid: false
         };
@@ -58,25 +58,34 @@ class Login extends Component {
       handleSubmit = (e) => {
         e.preventDefault();
         console.log(this.state.user);
+
+        this.props.history.push({
+            pathname: '/home',
+            state: { user: this.state.user }
+          })
       }
 
       render() {
         return (
           <div>
             <div className="container">
-                <div className="card">
+                <div className="card mt-5">
                     <div className="card-body">
                     <h2>Login form</h2>
                     <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
-                        <div className="form-group">
+                        <div className="form-group mb-0 mt-2">
                             <label htmlFor="username">Username:</label>
                             <input type="text" className="form-control" id="username" placeholder="Enter username" name="username"/>
                         </div>
-                        <div className="form-group">
+                        <small className="text-danger">{this.state.usernameValid ? '' : 'Username required'}</small>
+                        <div className="form-group mb-0 mt-2">
                             <label htmlFor="pwd">Password:</label>
                             <input type="password" className="form-control" id="pwd" placeholder="Enter password" name="pwd"/>
                         </div>
-                        <button type="submit" disabled={!this.state.formValid} className="btn btn-primary">Submit</button>
+                        <small className="text-danger">{this.state.pwdValid ? '' : 'Password required'}</small>
+                        <div className="mt-3">
+                            <button type="submit" disabled={!this.state.formValid} className="btn btn-primary">Submit</button>
+                        </div>
                     </form>
                 </div>
                 </div>

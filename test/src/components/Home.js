@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
-import { Route, Link, BrowserRouter as Router, Switch } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
+import Card from './Card';
+import Clock from './Clock';
 
 class Home extends Component {
 
     constructor(props) {
         super(props);
-        console.log(props);
-
+        console.log(this.props.location.state.user);
+        this.state = {
+            user: {
+                name: this.props.location.state.user.username,
+            }
+        }
+        
       }
     
       render() {
@@ -15,7 +22,7 @@ class Home extends Component {
           <div>
             <nav className="navbar navbar-expand-md bg-dark navbar-dark boxShadowSmall">
                 <div className="navbar-brand">
-                    <Link to="/">
+                    <Link to="/home">
                         Home
                     </Link>
                 </div>
@@ -25,17 +32,32 @@ class Home extends Component {
                 <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul className="navbar-nav justify-content-end">
                         <form className="form-inline">
-                            <Link to="/new">
-                                <button className="btn btn-outline-success btn-sm" type="button" title="Go to New">
-                                    Add new 
+                            <Link to="/">
+                                <button className="btn btn-outline-danger btn-sm" type="button" title="Go to New">
+                                    Logout 
                                 </button>
                             </Link>
                         </form>
-                        */}
                     </ul>
                 </div>
             </nav>
-          </div>
+          
+            <div className="container-fluid">
+                <div className="row">
+                    <div className="col-md-3 col-sm-12">
+                        <h3>USER:</h3>
+                        <Card username={this.state.user.name}/>
+                    </div>
+                    <div className="col-md-7 col-sm-12">
+                        <h3>MESSAGES:</h3>
+                    </div>
+                    <div className="col-md-2 col-sm-12">
+                        <h3>CLOCK:</h3>
+                        <Clock />
+                    </div>
+                </div>
+            </div>
+        </div>
         );
       }
     }
