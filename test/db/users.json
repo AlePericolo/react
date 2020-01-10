@@ -1,0 +1,51 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "ale",
+      "password": "pwd",
+      "age": 29,
+      "gender": "M",
+      "avatar": "https://www.w3schools.com/bootstrap4/img_avatar3.png",
+      "bio": "ciao a tutti",
+      "post": [
+        {
+          "id": 1,
+          "mex": "lorem ipsum",
+          "date": null
+        },
+        {
+          "id": 2,
+          "mex": "lorem2 ipsum2",
+          "date": null
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "username": "pippo",
+      "password": "pippo",
+      "age": 28,
+      "gender": "F",
+      "avatar": "https://www.w3schools.com/bootstrap4/img_avatar4.png",
+      "bio": "test test test",
+      "post": [
+        {
+          "id": 1,
+          "mex": "prova",
+          "date": null
+        }
+      ]
+    },
+    {
+      "username": "suka",
+      "password": "suka",
+      "age": "29",
+      "gender": "M",
+      "avatar": "https://www.w3schools.com/bootstrap4/img_avatar3.png",
+      "bio": "test bio",
+      "post": [],
+      "id": 3
+    }
+  ]
+}

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 
 import Login from './components/Login';
+import Register from './components/Register';
 import Home from './components/Home';
 
 import './index.css';
@@ -14,6 +15,7 @@ const routing = (
         <div>
             <Switch>
                 <Route exact path="/" component={Login} />
+                <Route exact path="/register" component={Register} />
                 <Route exact path="/home" component={Home} />
             </Switch>
         </div>
