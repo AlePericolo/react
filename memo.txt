@@ -4,3 +4,6 @@ cd "appname"
 npm start
 
 npm install react-scripts --save
+
+json-server (windows):
+npx json-server --watch "dbname.json" --port "nport" (3001)
